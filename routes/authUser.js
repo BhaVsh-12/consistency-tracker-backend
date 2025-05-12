@@ -40,7 +40,7 @@ router.post("/login", async (req, res) => {
     delete userData.password; // Remove password before sending user data
 
     console.log("JWT Secret (Sign):", process.env.JWT_SECRET); // Log the secret during sign
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "30d" });
     res.json({ token, user: userData }); // Send token and user data
   } catch (error) {
     console.error("Login error:", error);
