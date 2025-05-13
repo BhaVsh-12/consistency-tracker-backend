@@ -13,7 +13,7 @@ const protectRoute = (req, res, next) => {
   }
 
   try {
-    console.log("JWT Secret (Verify):", process.env.JWT_SECRET); // Log the secret during verify
+
     const decoded = jwt.verify(bearer[1], process.env.JWT_SECRET);
     req.user = { id: decoded.id };
     next();

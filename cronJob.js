@@ -10,7 +10,7 @@ cron.schedule('0 0 * * *', async () => {
                 if (!goal.didCheckInToday) {
                     if(goal.pause){
                         if(goal.pauseDay<=0){
-                            goals.pause=false;
+                            goal.pause=false;
                             goal.pauseDay=0;
                         }else{
                             goal.pauseDay=goal.pauseDay-1;
@@ -30,6 +30,7 @@ cron.schedule('0 0 * * *', async () => {
             }
         }
         console.log('✅ Daily update completed');
+        
     } catch (err) {
         console.error('❌ Error in daily update:', err);
     }
